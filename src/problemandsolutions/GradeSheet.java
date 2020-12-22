@@ -19,9 +19,37 @@ public class GradeSheet {
     //
     //Your grade is B.
 
-
     public static void main(String[] args) {
-
+        String st = grade(98.5);
+        System.out.println(st);
     }
+
+   enum Grades{
+       A,B,C,F;
+   }
+
+   public static double averageGrade(double [] marks){
+        double total = 0;
+        for(double m: marks){
+            total = total +m;
+        }
+        double average = total/marks.length;
+        return average;
+   }
+
+   public static String grade(double av){
+        if(av>=90){
+            return Grades.A.name();
+        }else if(av>=70 && av<90){
+            return Grades.B.name();
+        }else if(av>=50 && av <70){
+            return Grades.C.name();
+        }else{
+            return Grades.F.name();
+        }
+   }
+
+
+
 
 }
